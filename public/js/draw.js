@@ -19,7 +19,7 @@
     }, 2000)
     App.ctx.lineWidth = 5;
     App.ctx.lineCap = "round";
-    App.socket = io.connect('https://mighty-retreat-86445.herokuapp.com/');
+    App.socket = io.connect('https://mighty-retreat-86445.herokuapp.com:4000');
     App.socket.on('draw', function(data) {
       return App.draw(data.x, data.y, data.type);
     });
