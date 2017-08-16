@@ -10,6 +10,16 @@ var users = require('./routes/users');
 
 var app = express();
 
+
+const jsonParser = bodyParser.json();
+
+const {ShoppingList} = require('./models');
+
+app.use(logger('common'));
+
+
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -26,11 +36,11 @@ app.use('/', routes);
 app.use('/users', users);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
+// app.use(function(req, res, next) {
+//   var err = new Error('Not Found');
+//   err.status = 404;
+//   next(err);
+// });
 
 // error handlers
 
@@ -71,6 +81,15 @@ app.use(function(err, req, res, next) {
     });
   });
 }).call(this);
+
+
+
+
+app.get('/shopping-list', (req, res) => {
+  res.json({'animal':'puppy'});
+  console.log(ShoppingList.get())
+  // res.json(ShoppingList.get());
+});
 
 
 module.exports = app;
