@@ -82,7 +82,8 @@ app.use(function(err, req, res, next) {
     
    var io = require('socket.io').listen(server);
    
-   server.listen(process.env.PORT || 4000);
+   //server.listen(process.env.PORT || 4000);
+   server.listen(4000);
 
   //io = require('socket.io').listen;
   io.sockets.on('connection', function(socket) {
