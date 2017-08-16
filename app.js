@@ -67,11 +67,26 @@ app.use(function(err, req, res, next) {
 });
 
 
+
+//var express = require('express'),
+  //  app = express(),
+ //   script(src='http://localhost:4000/socket.io/socket.io.js')
+//
+
 (function() {
 	console.log('adf')
-  var io;
-  io = require('socket.io').listen(4000);
+  //var io;
+  //io = require('socket.io').listen(4000);
+  //io.sockets.on('connection', function(socket) {
+   var server = require('http').createServer(app);
+    
+   var io = require('socket.io').listen(server);
+   
+   server.listen(process.env.PORT || 4000);
+
+  //io = require('socket.io').listen;
   io.sockets.on('connection', function(socket) {
+
     socket.on('drawClick', function(data) {
       socket.broadcast.emit('draw', {
         x: data.x,
