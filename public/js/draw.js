@@ -13,6 +13,10 @@
     App.ctx = App.canvas.getContext("2d");
     App.ctx.fillStyle = "solid";
     App.ctx.strokeStyle = "#ECD018";
+    
+    setInterval(function(){
+	    App.ctx.strokeStyle = "#"+((1<<24)*Math.random()|0).toString(16)
+    }, 2000)
     App.ctx.lineWidth = 5;
     App.ctx.lineCap = "round";
     App.socket = io.connect('http://localhost:4000');
