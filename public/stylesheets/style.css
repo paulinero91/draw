@@ -1,5 +1,5 @@
 body {
-	background: #392C44;
+	background: grey;
 	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -11,7 +11,12 @@ a {
 canvas {
 	background: #fff;
 	display: block;
-
 }
 
+#hey{
+	color: white;
+}
 
+.hello{
+	color: yellow;
+}
